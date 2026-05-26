@@ -12,6 +12,7 @@ This directory records significant architectural decisions for Runtimee. Each AD
 | [ADR-004](ADR-004-actor-as-financial-identity.md) | Actor as Financial Identity | Accepted |
 | [ADR-005](ADR-005-pure-zero-io-core.md) | Pure Zero-I/O Core Package | Accepted |
 | [ADR-006](ADR-006-execution-adapter-separation.md) | Execution Adapter Separation | Accepted |
+| [ADR-007](ADR-007-tooling-simplicity.md) | Tooling Simplicity Over Enterprise Build Systems | Accepted |
 
 ## Status Meanings
 
