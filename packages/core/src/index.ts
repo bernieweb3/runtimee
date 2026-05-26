@@ -19,3 +19,17 @@ export type {
   SignedTransaction,
   Receipt,
 } from './types.js'
+
+export {
+  AuthorizationError,
+  BudgetExhaustedError,
+  AllowlistDeniedError,
+  RateLimitExceededError,
+  AuthorizationExpiredError,
+  ExecutionError,
+  NetworkError,
+  GasEstimationError,
+  BroadcastError,
+  ReorgDetectedError,
+} from './errors.js'
+export type { ErrorCodeMessage } from './errors.js'
