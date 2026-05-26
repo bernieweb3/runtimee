@@ -23,8 +23,7 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      - run: corepack enable
-      - run: corepack --version
+      - run: npm install -g pnpm@10.33.0
       - run: pnpm --version
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
