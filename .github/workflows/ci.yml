@@ -24,6 +24,7 @@ jobs:
           cache: pnpm
 
       - run: npm install -g pnpm@10.33.0
+      - run: echo "$(npm bin -g)" >> $GITHUB_PATH
       - run: pnpm --version
       - run: pnpm install --frozen-lockfile
       - run: pnpm -r build
