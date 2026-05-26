@@ -35,3 +35,5 @@ export {
 export type { ErrorCodeMessage } from './errors.js'
 
 export { DecisionResolver } from './decision-resolver.js'
+
+export { PolicyEngine } from './policy-engine.js'
