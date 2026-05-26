@@ -12,6 +12,20 @@ describe('EVM types', () => {
 })
 
 import { estimateGasWithBuffer } from '../src/gas-strategy.js'
+import { createEVMProvider } from '../src/evm-provider.js'
+import type { Intent } from '@runtimee/core'
+
+describe('EVMProvider', () => {
+  it('can be instantiated', () => {
+    const provider = createEVMProvider({
+      rpcUrl: 'https://sepolia.base.org',
+      signerAddress: '0x1234567890abcdef1234567890abcdef12345678' as `0x${string}`,
+    })
+    expect(provider).toBeDefined()
+    expect(typeof provider.simulate).toBe('function')
+    expect(typeof provider.broadcast).toBe('function')
+  })
+})
 
 describe('GasStrategy', () => {
   it('adds 20% buffer to estimated gas', () => {
