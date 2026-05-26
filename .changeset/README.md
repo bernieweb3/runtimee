@@ -19,23 +19,31 @@ This prompts you to:
 
 A markdown file is created in `.changeset/` — commit it with your code.
 
-### 2. Version
+### 2. Check status (optional)
+
+Preview what will be released:
+
+```bash
+pnpm exec changeset status
+```
+
+### 3. Version
 
 When ready to release:
 
 ```bash
-pnpm version
+pnpm version:packages
 ```
 
 This consumes all pending changeset files, bumps package versions, updates internal workspace dependencies, and generates changelogs.
 
-### 3. Publish
+### 4. Publish
 
 ```bash
 pnpm release
 ```
 
-This builds all packages, versions them, publishes to npm, and creates git tags.
+This builds all packages, publishes to npm, and creates git tags.
 
 ## Publishing Scope
 
@@ -67,15 +75,24 @@ The release workflow (`.github/workflows/release.yml`) runs on pushes to `master
 2. On merge, publishes changed packages to npm
 3. Creates GitHub releases with changelog content
 
+## Scripts Reference
+
+| Script | Purpose |
+|--------|---------|
+| `pnpm changeset` | Create a new changeset (interactive) |
+| `pnpm exec changeset status` | Preview what would be released |
+| `pnpm version:packages` | Consume changesets, bump versions, write changelogs |
+| `pnpm release` | Build + publish to npm |
+
 ## Manual Release
 
-For a one-off release:
+For a one-off release without the GitHub Actions workflow:
 
 ```bash
-pnpm changeset       # Create changeset files
-pnpm changeset version  # Consume them
+pnpm changeset              # Create changeset files
+pnpm version:packages       # Consume them
 git add -A
 git commit -m "chore: version packages"
 git push --follow-tags
-pnpm changeset publish  # Publish to npm
+pnpm release                # Build + publish to npm
 ```
