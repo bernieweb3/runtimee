@@ -8,7 +8,6 @@
     "test:core": "pnpm --filter @runtimee/core test",
     "test:evm": "pnpm --filter @runtimee/evm test",
     "test:sdk": "pnpm --filter @runtimee/sdk test",
-    "lint": "pnpm -r lint",
     "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
