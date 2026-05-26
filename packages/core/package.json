@@ -12,12 +12,14 @@
   },
   "scripts": {
     "build": "tsc",
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "fast-check": "^4.8.0",
+    "rimraf": "^6.0.0",
     "typescript": "^5.5.0",
     "vitest": "^2.0.0"
   }

@@ -4,6 +4,9 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r build",
+    "clean": "pnpm -r clean",
+    "lint": "pnpm typecheck && pnpm boundaries && eslint packages",
+    "lint:eslint": "eslint packages",
     "test": "vitest run",
     "test:unit": "vitest run --project **unit",
     "test:integration": "vitest run --project **integration",
@@ -16,12 +19,15 @@
     "typecheck": "pnpm -r typecheck",
     "boundaries": "depcruise packages --config .dependency-cruiser.cjs",
     "boundaries:graph": "depcruise packages --config .dependency-cruiser.cjs --output-type dot | dot -T svg > docs/dependency-graph.svg",
-    "ci": "pnpm typecheck && pnpm boundaries && pnpm test:unit"
+    "check": "pnpm build && pnpm lint && pnpm test:unit"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^2.1.9",
     "dependency-cruiser": "^17.4.2",
+    "eslint": "^10.4.0",
+    "rimraf": "^6.1.3",
     "typescript": "^5.5.0",
+    "typescript-eslint": "^8.60.0",
     "vitest": "^2.1.9"
   },
   "engines": {
