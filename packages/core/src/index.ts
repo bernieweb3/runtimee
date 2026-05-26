@@ -33,3 +33,5 @@ export {
   ReorgDetectedError,
 } from './errors.js'
 export type { ErrorCodeMessage } from './errors.js'
+
+export { DecisionResolver } from './decision-resolver.js'
