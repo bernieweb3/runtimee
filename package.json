@@ -4,18 +4,25 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r build",
-    "test": "pnpm -r test",
-    "test:core": "pnpm --filter @runtimee/core test",
-    "test:evm": "pnpm --filter @runtimee/evm test",
-    "test:sdk": "pnpm --filter @runtimee/sdk test",
+    "test": "vitest run",
+    "test:unit": "vitest run --project **unit",
+    "test:integration": "vitest run --project **integration",
+    "test:e2e": "vitest run --project **e2e",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage --project **unit",
+    "test:core": "vitest run --project core:unit",
+    "test:evm": "vitest run --project evm:*",
+    "test:sdk": "vitest run --project sdk:unit",
     "typecheck": "pnpm -r typecheck",
     "boundaries": "depcruise packages --config .dependency-cruiser.cjs",
     "boundaries:graph": "depcruise packages --config .dependency-cruiser.cjs --output-type dot | dot -T svg > docs/dependency-graph.svg",
-    "ci": "pnpm typecheck && pnpm boundaries && pnpm test"
+    "ci": "pnpm typecheck && pnpm boundaries && pnpm test:unit"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.9",
     "dependency-cruiser": "^17.4.2",
-    "typescript": "^5.5.0"
+    "typescript": "^5.5.0",
+    "vitest": "^2.1.9"
   },
   "engines": {
     "node": ">=20"
