@@ -14,16 +14,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.RUNTIMEE_PAT }}
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.RUNTIMEE_PAT }}
 
+      - uses: pnpm/action-setup@v4.4.0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
 
-      - run: npx pnpm@10.33.0 install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile
       - run: pnpm -r build
       - run: pnpm typecheck
       - run: pnpm boundaries
